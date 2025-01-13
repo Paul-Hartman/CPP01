@@ -2,7 +2,7 @@ NAME := Zombies
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -std=c++98
 OBJDIR = objs
-SRCS = Main.cpp PhoneBook.cpp Contact.cpp
+SRCS = newZombie.cpp randomChump.cpp Zombie.cpp main.cpp
 OBJS := $(patsubst %.cpp, $(OBJDIR)/%.o, $(SRCS))
 
 $(OBJDIR):
