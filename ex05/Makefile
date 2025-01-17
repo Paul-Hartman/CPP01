@@ -2,7 +2,7 @@ NAME := Harl
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -std=c++98
 OBJDIR = objs
-SRCS = main.cpp
+SRCS = Harl.cpp main.cpp
 OBJS := $(patsubst %.cpp, $(OBJDIR)/%.o, $(SRCS))
 
 $(OBJDIR):
