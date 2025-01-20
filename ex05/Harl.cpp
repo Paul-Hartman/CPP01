@@ -5,25 +5,30 @@ Harl::Harl(){}
 Harl::~Harl(){}
 
 void Harl::complain( std::string level ){
-	void (Harl::*funcPtr)(void) = NULL;
-	if (level == "debug"){
-		funcPtr = &Harl::debug;
-	}
-	else if (level == "info"){
-		funcPtr = &Harl::info;
-	}
-	else if (level == "warning"){
-		funcPtr = &Harl::warning;
-	}
-	else if (level == "error"){
-		funcPtr = &Harl::error;
-	}
-	else{
-		std::cout << "Invalid type" << std::endl;
-	}
 
-	if (funcPtr != NULL){
-		(this->*funcPtr)();
+	void (Harl::*funcPtr[])(void) = 
+	{
+		&Harl::debug,
+		&Harl::info,
+		&Harl::warning,
+		&Harl::error
+	};
+
+	std::string levels[] = 
+	{	
+		"debug",
+		"info",
+		"warning",
+		"error"
+	};
+
+	for (int i = 0; i < 4; i++)
+	{
+		if(level == levels[i])
+		{
+			(this->*funcPtr[i])();
+			break;
+		}
 	}
 }
 
