@@ -1,10 +1,8 @@
 #include "Zombie.hpp"
 
+Zombie::Zombie() : _name("default") {}
 
-
-Zombie::Zombie(std::string name) {
-	_name = name;
-}
+Zombie::Zombie(std::string name) : _name(name) {}
 
 Zombie::~Zombie() {
 	std::cout << "Zombie: " << _name << " was destroyed" << std::endl;

@@ -8,20 +8,22 @@ int main(int argc, const char** argv){
 		switch(level)
 		{
 			case 0:
-				harl.complain("error");
-			case 1:
-				harl.complain("warning");
-			case 2:
-				harl.complain("info");
-			case 3:
 				harl.complain("debug");
-				
-		}
+			case 1:
+				harl.complain("info");
+			case 2:
+				harl.complain("warning");
+			case 3:
+				harl.complain("error");
+				break;
+			default:
+				std::cout << "Invalid level" << std::endl;
 
+		}
 	}
 	else
 	{
-		std::cout << "Usage: " << argv[0] << " <debug|info|warning|error>" << std::endl;
+		std::cout << "Wrong number of arguments! Please enter error|warning|info|debug" << std::endl;
 	}
 	return 1;
 }

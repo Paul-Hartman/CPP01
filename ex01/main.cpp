@@ -2,11 +2,12 @@
 
 Zombie* zombieHorde(int N, std::string name);
 
-int main(int argc, char const *argv[])
+int main()
 {
-	(void)argc;
-	(void)argv;
-	Zombie* horde = zombieHorde(5, "bernard");
+	int numZombies = 5;
+	Zombie* horde = zombieHorde(numZombies, "zombie");
+	for(int i = 0; i < numZombies; i++)
+		horde[i].announce();
 	delete [] horde;
 	return 0;
 }

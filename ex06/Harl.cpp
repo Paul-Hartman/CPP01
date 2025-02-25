@@ -34,40 +34,37 @@ void Harl::complain( std::string level ){
 
 int Harl::getLevel(std::string level)
 {
-	if(level == "error")
+	for (size_t i = 0; i < level.size(); ++i) {
+        level[i] = std::tolower(level[i]);
+    }
+	std::string levels[] = 
+	{	
+		"debug",
+		"info",
+		"warning",
+		"error"
+	};
+	int levelnum = -1;
+	for(int i = 0; i < 4 && levelnum == -1; i++)
 	{
-		return 0;
+		if(level == levels[i])
+			levelnum = i;
 	}
-	else if(level == "warning")
-	{
-		return 1;
-	}
-	else if(level == "info")
-	{
-		return 2;
-	}
-	else if(level == "debug")
-	{
-		return 3;
-	}
-	else
-	{
-		return -1;
-	}
+	return levelnum;
 }
 
 void Harl::debug( void ){
-	std::cout << "DEBUG: This is a debug message" << std::endl;
+	std::cout << "[DEBUG]" << std::endl <<"This is a debug message" << std::endl << std::endl;
 }
 
 void Harl::info( void ){
-	std::cout << "INFO: This is an info message" << std::endl;
+	std::cout<< "[INFO]" << std::endl <<"This is an info message" << std::endl << std::endl;
 }
 
 void Harl::warning( void ){
-	std::cout << "WARNING: This is a warning message" << std::endl;
+	std::cout << "[WARNING]" << std::endl << "This is a warning message" << std::endl << std::endl;
 }
 
 void Harl::error( void ){
-	std::cout << "ERROR: This is an error message" << std::endl;
+	std::cout <<"[ERROR]" << std::endl <<"This is an error message" << std::endl << std::endl;
 }

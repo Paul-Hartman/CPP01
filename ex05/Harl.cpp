@@ -21,15 +21,19 @@ void Harl::complain( std::string level ){
 		"warning",
 		"error"
 	};
-
+	bool found = false;
 	for (int i = 0; i < 4; i++)
 	{
 		if(level == levels[i])
 		{
 			(this->*funcPtr[i])();
+			found = true;
 			break;
 		}
 	}
+	if (!found)
+		std::cout << "Invalid level" << std::endl;
+	
 }
 
 void Harl::debug( void ){
